@@ -39,17 +39,31 @@ INSERT into role (title, salary, department_id)
 VALUE ("IT Technician", 56000, 4);
 
 -- Employee seeds
-INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("Paul", "Sun", null, 1);
 
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("Frank", "Sun", null, 2);
+VALUE ("Mike", "Kung", null, 7);
 
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("Gloria", "Cheung", null, 3);
+VALUE ("Gloria", "Cheung", null, 5);
 
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("Christopher", "Peterson", 1, 4);
+VALUE ("Christopher", "Peterson", null, 3);
 
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("Mike", "Kung", 2, 5);
+VALUE ("Paul", "Sun", 3, 4);
+
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUE ("Frank", "Sun", 3, 4);
+
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUE ("Ricky", "Spanish", 3, 4);
+
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUE ("Bobo", "The Clown", 3, 4);
+
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUE ("John", "Smith", 1, 8);
+
+INSERT INTO employee (first_name, last_name, manager_id, role_id)
+VALUE ("Erica", "Peterson", 2, 6);
+
