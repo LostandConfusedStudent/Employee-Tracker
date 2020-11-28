@@ -6,12 +6,17 @@ This is the homework for week twelve. The goal is to use node, inquirer, and MyS
 
 ## Installation
 
-In the termainal, use the following commands:
+In the terminal, use the following commands:
 
 * `npm install node`
 * `npm install inqurer`
+* `npm install console.table --save`
+* `bower install console.table --save`
 
 ## Usage
+
+In the terminal, use the following command:
+* `node app.js`
 
 ## Demonstration
 
