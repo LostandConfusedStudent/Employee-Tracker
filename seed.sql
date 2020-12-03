@@ -53,7 +53,7 @@ INSERT INTO employee (first_name, last_name, manager_id, role_id)
 VALUE ("Paul", "Sun", 3, 4);
 
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
-VALUE ("Frank", "Sun", 3, 4);
+VALUE ("Brian", "King", 3, 4);
 
 INSERT INTO employee (first_name, last_name, manager_id, role_id)
 VALUE ("Ricky", "Spanish", 3, 4);

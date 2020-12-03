@@ -1,0 +1,27 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "This is the homework for week twelve. The goal is to use node, inquirer, and MySQL create a command-line application that adds and views departments, roles, and employees, and updates employee roles. This application would be used to manage employees.",
+  "main": "app.js",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "express": "^4.17.1",
+    "inquirer": "^7.3.3",
+    "mysql": "^2.18.1",
+    "node": "^15.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LostandConfusedStudent/Employee-Tracker.git"
+  },
+  "author": "Paul Sun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LostandConfusedStudent/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/LostandConfusedStudent/Employee-Tracker#readme"
+}

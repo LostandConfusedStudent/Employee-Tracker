@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
 // Connect
 connection.connect(function (err) {
     if (err) throw err
-    console.log("Connected");
+    console.log("Connected as id " + connection.threadId);
     init();
 });
 
@@ -209,6 +209,56 @@ function addEmployee() {
 };
 
 // Add role
+function addRole() {
+    connection.query("SELECT role.title AS Title, role.salary AS Salary FROM role", function (err, res) {
+        inquirer.prompt([
+            {
+                name: "Title",
+                type: "input",
+                message: "Role title?"
+            },
+            {
+                name: "Salary",
+                type: "input",
+                message: "Salary?"
 
+            }
+        ]).then(function (res) {
+            connection.query(
+                "INSERT INTO role SET ?",
+                {
+                    title: res.Title,
+                    salary: res.Salary,
+                },
+                function (err) {
+                    if (err) throw err
+                    console.table(res);
+                    init();
+                }
+            );
+        });
+    });
+};
 
 // Add department
+function addDepartment() {
+    inquirer.prompt([
+        {
+            name: "name",
+            type: "input",
+            message: "Department?"
+        }
+    ]).then(function (res) {
+        connection.query(
+            "INSERT INTO department SET ? ",
+            {
+                name: res.name
+            },
+            function (err) {
+                if (err) throw err
+                console.table(res);
+                init();
+            }
+        );
+    });
+};
