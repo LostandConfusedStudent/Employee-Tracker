@@ -12,9 +12,9 @@ const connection = mysql.createConnection({
 });
 
 // Connect
-connection.connect(function (err) {
+connection.connect(function(err) {
     if (err) throw err
-    console.log("Connected as id " + connection.threadId);
+    console.log("Connected as id " + connection.threadId)
     init();
 });
 
@@ -35,7 +35,7 @@ function init() {
                 "Add department"
             ]
         }
-    ]).then(function (val) {
+    ]).then(function(val) {
         switch (val.choice) {
             case "View employees":
                 viewEmployees();
@@ -114,7 +114,7 @@ function selectRole() {
 // Empty array for managers
 var managersArray = [];
 function selectManager() {
-    connection.query("SELECT first_name, last_name FROM employee WHERE manager_id IS NULL", function (err, res) {
+    connection.query("SELECT first_name, last_name FROM employee WHERE manager_id IS NULL", function(err, res) {
         if (err) throw err
         for (var i = 0; i < res.length; i++) {
             managersArray.push(res[i].first_name);
@@ -125,14 +125,14 @@ function selectManager() {
 
 // Update employee
 function updateEmployee() {
-    connection.query("SELECT employee.last_name, role.title FROM employee JOIN role ON employee.role_id = role.id;", function (err, res) {
+    connection.query("SELECT employee.last_name, role.title FROM employee JOIN role ON employee.role_id = role.id;", function(err, res) {
         if (err) throw err
         console.log(res)
         inquirer.prompt([
             {
                 name: "lastName",
                 type: "rawlist",
-                choices: function () {
+                choices: function() {
                     var lastName = [];
                     for (var i = 0; i < res.length; i++) {
                         lastName.push(res[i].last_name);
@@ -147,7 +147,7 @@ function updateEmployee() {
                 message: "New title? ",
                 choices: selectRole()
             },
-        ]).then(function (val) {
+        ]).then(function(val) {
             var roleId = selectRole().indexOf(val.role) + 1
             connection.query("UPDATE employee SET WHERE ?",
                 {
@@ -156,7 +156,7 @@ function updateEmployee() {
                 {
                     role_id: roleId
                 },
-                function (err) {
+                function(err) {
                     if (err) throw err
                     console.table(val)
                     init();
@@ -190,7 +190,7 @@ function addEmployee() {
             message: "Who's their manager?",
             choices: selectManager()
         }
-    ]).then(function (val) {
+    ]).then(function(val) {
         var roleId = selectRole().indexOf(val.role) + 1
         var managerId = selectManager().indexOf(val.choice) + 1
         connection.query("INSERT INTO employee SET ?",
@@ -200,7 +200,7 @@ function addEmployee() {
                 manager_id: managerId,
                 role_id: roleId
 
-            }, function (err) {
+            }, function(err) {
                 if (err) throw err
                 console.table(val)
                 init();
@@ -210,7 +210,7 @@ function addEmployee() {
 
 // Add role
 function addRole() {
-    connection.query("SELECT role.title AS Title, role.salary AS Salary FROM role", function (err, res) {
+    connection.query("SELECT role.title AS Title, role.salary AS Salary FROM role", function(err, res) {
         inquirer.prompt([
             {
                 name: "Title",
@@ -223,7 +223,7 @@ function addRole() {
                 message: "Salary?"
 
             }
-        ]).then(function (res) {
+        ]).then(function(res) {
             connection.query(
                 "INSERT INTO role SET ?",
                 {

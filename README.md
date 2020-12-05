@@ -23,4 +23,3 @@ In the terminal, use the following command:
 ## Links
 
 * https://github.com/LostandConfusedStudent/Employee-Tracker
-* 
